@@ -12,7 +12,7 @@ jobs:
     build:
       docker:
         - image: circleci/node
-      step:
+      steps:
         - checkout
         - run: echo "A more familiar hi"
         - run: sleep 15
