@@ -20,17 +20,19 @@ jobs:
       - run: echo "A more familiar hi"
       - attach_workspace:
         at: my_workspace_one
+
       - run: |
           if [[ $(cat my_workspace_one/echo-output) == "trying out workspaces" ]]; then
             echo "It worked";
           else
             echo "Nope!"; exit 1
           fi
+
 workflows:
   version: 2
   one_and_two:
     jobs:
       - one
       - two:
-        requires:
-          - one
+          requires:
+            - one
